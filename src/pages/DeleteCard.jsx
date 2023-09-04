@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const DeleteCard = () => {
-  return (
-    <div>DeleteCard</div>
-  )
-}
+  return <div>DeleteCard</div>;
+};
 
-export default DeleteCard
+export default DeleteCard;

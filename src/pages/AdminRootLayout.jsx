@@ -1,13 +1,13 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import HeaderUser from "../components/HeaderUser";
 import { Outlet } from "react-router-dom";
+import Admin from "../components/Admin";
 
-function RootLayout() {
+function AdminRootLayout() {
   return (
     <Container>
-      <HeaderUser />
+      <Admin />
       <Row>
         <Col sm>
           <Outlet />
@@ -17,4 +17,4 @@ function RootLayout() {
   );
 }
 
-export default RootLayout;
+export default AdminRootLayout;

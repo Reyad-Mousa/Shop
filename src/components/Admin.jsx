@@ -1,18 +1,13 @@
-import React from 'react'
-import Button from "react-bootstrap/Button";
-import AdminProductsMangment from '../pages/AdminProductsMangment';
-import AddCard from '../pages/AddCard';
+import React from "react";
 
-
-
+import HeaderAdmin from "./HeaderAdmin";
 
 const Admin = () => {
-    
-    return (
-       <>
-        
-       </>
-      );
-    }
+  return (
+    <>
+      <HeaderAdmin />
+    </>
+  );
+};
 
-export default Admin
+export default Admin;
