@@ -13,8 +13,11 @@ import AdminRootLayout from "./pages/AdminRootLayout";
 import AdminIndex from "./AdminIndex";
 import DeleteCard from "./pages/DeleteCard";
 import EditCard from "./pages/EditCard";
+import store from "./store/Index.js";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
+  // users paths
   {
     path: "/",
     element: <RootLayout />,
@@ -27,11 +30,12 @@ const router = createBrowserRouter([
         element: <AddCard />,
       },
       {
-        path: "/products/:id",
+        path: "/products/details/:id",
         element: <Details />,
       },
     ],
   },
+  // admin paths
   {
     path: "/admin/",
     element: <AdminRootLayout />,
@@ -64,7 +68,7 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </Provider>
 );
