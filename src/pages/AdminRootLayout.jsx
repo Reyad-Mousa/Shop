@@ -1,15 +1,15 @@
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Outlet } from "react-router-dom";
 import Admin from "../components/Admin";
+import { Row } from "react-bootstrap";
 
 function AdminRootLayout() {
   return (
     <Container>
       <Admin />
       <Row>
-        <Col sm>
+        <Col className="d-flex flex-wrap justify-content-evenly">
           <Outlet />
         </Col>
       </Row>

@@ -25,9 +25,14 @@ const HeaderUser = () => {
           </Nav>
 
           <Row>
-            <Col xs="auto">
+            <Col className="d-flex align-items-center ">
               <Button
-                style={{ width: "3rem", height: "3rem", position: "relative" }}
+                style={{
+                  marginRight: "1rem",
+                  width: "3rem",
+                  height: "3rem",
+                  position: "relative",
+                }}
                 variant="outline-primary"
                 className="rounded-circle"
               >
@@ -53,12 +58,11 @@ const HeaderUser = () => {
                   5
                 </div>
               </Button>
-
-             <Nav.Link href="admin">
-               <Button className="admin" type="submit">
-                Admin
-              </Button>
-             </Nav.Link>
+              <Nav.Link href="admin">
+                <Button className="admin" type="submit">
+                  Admin
+                </Button>
+              </Nav.Link>
             </Col>
           </Row>
         </Container>

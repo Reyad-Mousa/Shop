@@ -15,7 +15,6 @@ const Index = () => {
   return (
     <>
       <CardListUser data={records} loading={loading} error={error} />
-      <CardListAdmin data={records} loading={loading} error={error} />
     </>
   );
 };
