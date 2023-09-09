@@ -10,7 +10,7 @@ import AddCard from "./pages/AddCard";
 import ErrorPage from "./pages/ErrorPage";
 import CardListAdmin from "./components/CardListAdmin";
 import AdminRootLayout from "./pages/AdminRootLayout";
-import AdminIndex from "./AdminIndex";
+import AdminIndex from "./pages/AdminIndex";
 import DeleteCard from "./pages/DeleteCard";
 import EditCard from "./pages/EditCard";
 import store from "./store/Index.js";

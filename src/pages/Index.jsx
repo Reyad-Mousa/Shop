@@ -2,8 +2,7 @@ import CardListUser from "../components/CardListUser";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "../store/productSlice";
-import CardListAdmin from "../components/CardListAdmin";
-// import Loading from "../components/Loading";
+import Loading from "../components/Loading";
 
 const Index = () => {
   const dispatch = useDispatch();
@@ -13,9 +12,9 @@ const Index = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Loading>
       <CardListUser data={records} loading={loading} error={error} />
-    </>
+    </Loading>
   );
 };
 
