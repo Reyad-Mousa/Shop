@@ -1,6 +1,6 @@
-import { Card, Form } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProducts } from "../store/productSlice";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
@@ -8,6 +8,8 @@ import Loading from "../components/Loading";
 const AddCard = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  const { loading, error } = useSelector((state) => state.products);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,11 +30,12 @@ const AddCard = () => {
 
   function checkIfEmpty() {
     if (title !== "" && description !== "") {
-      document.querySelector("button").removeAttribute("disabled");
+      document.getElementById("save").removeAttribute("disabled");
     } else {
-      document.querySelector("button").setAttribute("disabled", "disabled");
+      document.getElementById("save").setAttribute("disabled", "disabled");
     }
   }
+
   return (
     <>
       <Card
@@ -52,10 +55,10 @@ const AddCard = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label>Email address</Form.Label>
+                <Form.Label>Add Title</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="name@example.com"
+                  placeholder="Add title"
                   onChange={(e) => {
                     setTitle(e.target.value);
                     checkIfEmpty();
@@ -67,11 +70,11 @@ const AddCard = () => {
                 className="mb-3"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label>Example textarea</Form.Label>
+                <Form.Label>Description</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
-                  placeholder="Example textarea"
+                  placeholder="Add description"
                   onChange={(e) => {
                     setDescription(e.target.value);
                     checkIfEmpty();
@@ -81,11 +84,16 @@ const AddCard = () => {
               </Form.Group>
             </div>
 
-            <Loading>
-              <button type="submit" disabled className="btn btn-primary mt-2">
+            <Button
+              id="save"
+              type="submit"
+              className="btn btn-primary mt-2"
+              disabled
+            >
+              <Loading loading={loading} error={error}>
                 Save
-              </button>
-            </Loading>
+              </Loading>
+            </Button>
           </Form>
         </Card.Body>
       </Card>
