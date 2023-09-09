@@ -4,9 +4,14 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { NavLink } from "react-bootstrap";
 import Loading from "./Loading";
 
-const CardListUser = ({ data, loading, error }) => {
+const CardListUser = ({ data, deleteProduct }) => {
+  const deleteHandler = (item) => {
+    if (window.confirm(`Are you sure you want to delete : ${item.title}`)) {
+      deleteProduct(item.id);
+    }
+  };
   const records = data.map((el, index) => (
-    <>
+    <div key={el.id}>
       <Card style={{ width: "18rem", margin: "15px" }} key={++index}>
         <Card.Img
           variant="top"
@@ -30,7 +35,7 @@ const CardListUser = ({ data, loading, error }) => {
             className="d-flex justify-content-between"
             aria-label="Basic example"
           >
-            <NavLink href="admin/delete/product/:id">
+            <NavLink onClick={() => deleteHandler(el)}>
               <Button variant="outline-danger">Delete</Button>
             </NavLink>
             <NavLink href="admin/edit/product/:id">
@@ -39,7 +44,7 @@ const CardListUser = ({ data, loading, error }) => {
           </ButtonGroup>
         </Card.Body>
       </Card>
-    </>
+    </div>
   ));
 
   return <Loading>{records}</Loading>;

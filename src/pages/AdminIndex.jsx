@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import CardListAdmin from "../components/CardListAdmin";
-import { fetchProducts } from "../store/productSlice";
+import { fetchProducts, deleteProducts } from "../store/productSlice";
 import Loading from "../components/Loading";
 
 const AdminIndex = () => {
@@ -11,9 +11,20 @@ const AdminIndex = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  // function to delete (products)
+  const deleteProduct = useCallback(
+    (id) => dispatch(deleteProducts(id)),
+    [dispatch]
+  );
+ 
   return (
     <Loading>
-      <CardListAdmin data={records} loading={loading} error={error} />
+      <CardListAdmin
+        data={records}
+        loading={loading}
+        error={error}
+        deleteProduct={deleteProduct}
+      />
     </Loading>
   );
 };
