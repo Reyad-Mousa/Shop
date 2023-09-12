@@ -5,25 +5,23 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 // import { useState } from "react";
-
+import { Link, useNavigate } from "react-router-dom";
 const HeaderUser = () => {
   // const [isActive, setIsActive] = useState(false);
-
+  const navigate = useNavigate();
+  const someEventHandler = () => {
+    navigate("/admin");
+  };
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="/">Navbar</Navbar.Brand>
+          <Navbar.Brand >
+            <Link className="text-decoration-none" to={"/"}>Navbar</Link>
+          </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-
-            {/* {isActive ? (
-              <Nav.Link className="allProducts " href="#features">
-                All Products
-              </Nav.Link>
-            ) : null} */}
+            <Link className="text-decoration-none" to="/">Home</Link>
           </Nav>
-
           <Row>
             <Col className="d-flex align-items-center ">
               <Button
@@ -58,7 +56,7 @@ const HeaderUser = () => {
                   5
                 </div>
               </Button>
-              <Nav.Link href="admin">
+              <Nav.Link onClick={someEventHandler}>
                 <Button className="admin" type="submit">
                   Admin
                 </Button>

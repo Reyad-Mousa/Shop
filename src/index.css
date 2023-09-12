@@ -17,3 +17,6 @@ code {
 .show{
   display: block!important;
 }
+link {
+  text-decoration: none;
+}

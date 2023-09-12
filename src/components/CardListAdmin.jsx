@@ -1,10 +1,12 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { NavLink } from "react-bootstrap";
+import { NavLink, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 
 const CardListUser = ({ data, deleteProduct }) => {
+  const navigate = useNavigate();
+
   const deleteHandler = (item) => {
     if (window.confirm(`Are you sure you want to delete : ${item.title}`)) {
       deleteProduct(item.id);
@@ -29,9 +31,13 @@ const CardListUser = ({ data, deleteProduct }) => {
             <NavLink onClick={() => deleteHandler(el)}>
               <Button variant="outline-danger">Delete</Button>
             </NavLink>
-            <NavLink href={`admin/edit/product/${el.id}`}>
-              <Button variant="outline-primary">Edit</Button>
-            </NavLink>
+
+            <Button
+              variant="outline-primary"
+              onClick={() => navigate(`edit/product/${el.id}`)}
+            >
+              Edit
+            </Button>
           </ButtonGroup>
         </Card.Body>
       </Card>

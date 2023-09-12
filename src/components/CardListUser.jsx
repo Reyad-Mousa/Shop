@@ -3,8 +3,10 @@ import Card from "react-bootstrap/Card";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { NavLink } from "react-bootstrap";
 import Loading from "./Loading";
+import { useNavigate } from "react-router-dom";
 
 const CardListUser = ({ data, loading, error }) => {
+  const navigate = useNavigate();
   const records = data.map((el, index) => (
     <div key={el.id}>
       <Card key={el.id} style={{ width: "18rem", margin: "15px" }}>
@@ -21,10 +23,10 @@ const CardListUser = ({ data, loading, error }) => {
             className="d-flex justify-content-between"
             aria-label="Basic example"
           >
-            <NavLink href="">
+            <NavLink onClick={() => navigate()}>
               <Button variant="outline-primary">+</Button>
             </NavLink>
-            <NavLink href={`product/details/${el.id}`}>
+            <NavLink onClick={() => navigate(`product/details/${el.id}`)}>
               <Button variant="outline-success">More Details</Button>
             </NavLink>
           </ButtonGroup>
