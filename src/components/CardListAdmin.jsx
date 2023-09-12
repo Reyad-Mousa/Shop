@@ -19,17 +19,8 @@ const CardListUser = ({ data, deleteProduct }) => {
         />
         <Card.Body key={el.id} className="h-25">
           <Card.Title>{el.title}</Card.Title>
-          <Card.Text
-            className="overflow-hidden text-truncate 
-        
-          "
-          >
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content. Some quick example text to build on the
-            card title and make up the bulk of the card's content. Some quick
-            example text to build on the card title and make up the bulk of the
-            card's content. Some quick example text to build on the card title
-            and make up the bulk of the card's content.
+          <Card.Text className="overflow-hidden text-truncate  ">
+            {el.description}
           </Card.Text>
           <ButtonGroup
             className="d-flex justify-content-between"
@@ -38,7 +29,7 @@ const CardListUser = ({ data, deleteProduct }) => {
             <NavLink onClick={() => deleteHandler(el)}>
               <Button variant="outline-danger">Delete</Button>
             </NavLink>
-            <NavLink href="admin/edit/product/:id">
+            <NavLink href={`admin/edit/product/${el.id}`}>
               <Button variant="outline-primary">Edit</Button>
             </NavLink>
           </ButtonGroup>

@@ -48,7 +48,7 @@ const AddCard = () => {
           <Form>
             <div className="form-group">
               <div className="form-group mb-3 ">
-                <label className="mr-2">Upload your CV:</label>
+                <label className="mr-2">Upload Image:</label>
                 <input type="file" name="file" />
               </div>
               <Form.Group
