@@ -11,7 +11,6 @@ import ErrorPage from "./pages/ErrorPage";
 import CardListAdmin from "./components/CardListAdmin";
 import AdminRootLayout from "./pages/AdminRootLayout";
 import AdminIndex from "./pages/AdminIndex";
-import DeleteCard from "./pages/DeleteCard";
 import EditCard from "./pages/EditCard";
 import store from "./store/Index.js";
 import { Provider } from "react-redux";
@@ -24,13 +23,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Index /> },
-      { path: "/products/", element: <Index /> },
+      { path: "products", element: <Index /> },
       {
-        path: "/products/add",
+        path: "product/add",
         element: <AddCard />,
       },
       {
-        path: "/products/details/:id",
+        path: "product/details/:id",
         element: <Details />,
       },
     ],
@@ -39,6 +38,7 @@ const router = createBrowserRouter([
   {
     path: "/admin/",
     element: <AdminRootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <AdminIndex /> },
 
@@ -57,10 +57,6 @@ const router = createBrowserRouter([
       {
         path: "edit/product/:id",
         element: <EditCard />,
-      },
-      {
-        path: "delete/product/:id",
-        element: <DeleteCard />,
       },
     ],
   },

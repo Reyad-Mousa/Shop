@@ -8,7 +8,10 @@ const CardListUser = ({ data, loading, error }) => {
   const records = data.map((el, index) => (
     <div key={el.id}>
       <Card key={el.id} style={{ width: "18rem", margin: "15px" }}>
-        <Card.Img variant="top" src={el.image} alt="1111111" />
+        <Card.Img
+          variant="top"
+          src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+        />
         <Card.Body key={el.id} className="h-25">
           <Card.Title>{el.title}</Card.Title>
           <Card.Text className="overflow-hidden text-truncate">
@@ -26,7 +29,7 @@ const CardListUser = ({ data, loading, error }) => {
             <NavLink href="">
               <Button variant="outline-primary">+</Button>
             </NavLink>
-            <NavLink href="products/details/:id">
+            <NavLink href={`product/details/${el.id}`}>
               <Button variant="outline-success">More Details</Button>
             </NavLink>
           </ButtonGroup>

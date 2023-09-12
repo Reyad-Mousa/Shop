@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const AdminProductsMangment = () => {
-  return (
-    <div>AdminProductsMangment</div>
-  )
-}
+const AdminProductsManagement = () => {
+  return <div>AdminProductsManagement</div>;
+};
 
-export default AdminProductsMangment
+export default AdminProductsManagement;

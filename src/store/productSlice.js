@@ -53,10 +53,30 @@ export const addProducts = createAsyncThunk(
     }
   }
 );
+
+// get product
+export const getProduct = createAsyncThunk(
+  "products/getPost",
+  async (id, thunkApi) => {
+    const { rejectWithValue } = thunkApi;
+    try {
+      const response = await fetch(`http://localhost:8000/products/${id}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: [],
+  reducers: {
+    clearProducts: (state) => {
+      state.records = [];
+    },
+  },
   extraReducers: {
     // fetchProducts
     [fetchProducts.pending]: (state) => {
@@ -99,7 +119,21 @@ const productSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    // get product
+    [getProduct.pending]: (state) => {
+      state.loading = true;
+      state.error = null;
+      state.record = null;
+    },
+    [getProduct.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.record = action.payload;
+    },
+    [getProduct.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
   },
 });
-
+export const { clearProducts } = productSlice.actions;
 export default productSlice.reducer;
