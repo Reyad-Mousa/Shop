@@ -20,7 +20,7 @@ const Details = () => {
     <div>
       <Loading loading={loading} error={error}>
         <h1>Details</h1>
-        <h6>ID : {record?.id}</h6>
+        <h6>ID : {record?.idd}</h6>
         <p>Title : {record?.title}</p>
         <p>Description : {record?.description}</p>
       </Loading>

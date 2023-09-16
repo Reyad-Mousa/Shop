@@ -7,8 +7,9 @@ import Nav from "react-bootstrap/Nav";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
 import GlobalStateContext from "../hooks/GlobalStateContext";
+import Cart from "../pages/Cart";
 const HeaderUser = () => {
-  const { state } = useContext(GlobalStateContext);
+  const { state, setToggle } = useContext(GlobalStateContext);
   const navigate = useNavigate();
   const someEventHandler = () => {
     navigate("/admin");
@@ -17,6 +18,7 @@ const HeaderUser = () => {
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
+          <Cart />
           <Navbar.Brand>
             <Link className="text-decoration-none" to={"/"}>
               Navbar
@@ -30,6 +32,7 @@ const HeaderUser = () => {
           <Row>
             <Col className="d-flex align-items-center ">
               <Button
+                onClick={setToggle}
                 style={{
                   marginRight: "1rem",
                   width: "3rem",

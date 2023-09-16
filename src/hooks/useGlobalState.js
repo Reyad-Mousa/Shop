@@ -1,4 +1,3 @@
-// useGlobalState.js
 import { useState } from "react";
 
 export default function useGlobalState() {
@@ -12,5 +11,11 @@ export default function useGlobalState() {
     }));
   }
 
-  return [state, increment];
+  const [toggle, setToggle] = useState(false);
+  function show() {
+    setToggle(!toggle);
+  }
+
+  // Define the toggleSidebar function
+  return [state, increment, toggle, show];
 }
