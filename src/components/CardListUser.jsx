@@ -4,8 +4,10 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { NavLink } from "react-bootstrap";
 import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
-
-const CardListUser = ({ data, loading, error }) => {
+import React, { useContext } from "react";
+import GlobalStateContext from "../hooks/GlobalStateContext";
+const CardListUser = ({ data }) => {
+  const { increment } = useContext(GlobalStateContext);
   const navigate = useNavigate();
   const records = data.map((el, index) => (
     <div key={el.id}>
@@ -23,8 +25,10 @@ const CardListUser = ({ data, loading, error }) => {
             className="d-flex justify-content-between"
             aria-label="Basic example"
           >
-            <NavLink onClick={() => navigate()}>
-              <Button variant="outline-primary">+</Button>
+            <NavLink>
+              <Button onClick={increment} variant="outline-primary">
+                +
+              </Button>
             </NavLink>
             <NavLink onClick={() => navigate(`product/details/${el.id}`)}>
               <Button variant="outline-success">More Details</Button>

@@ -4,10 +4,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-// import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import GlobalStateContext from "../hooks/GlobalStateContext";
 const HeaderUser = () => {
-  // const [isActive, setIsActive] = useState(false);
+  const { state } = useContext(GlobalStateContext);
   const navigate = useNavigate();
   const someEventHandler = () => {
     navigate("/admin");
@@ -16,11 +17,15 @@ const HeaderUser = () => {
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand >
-            <Link className="text-decoration-none" to={"/"}>Navbar</Link>
+          <Navbar.Brand>
+            <Link className="text-decoration-none" to={"/"}>
+              Navbar
+            </Link>
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Link className="text-decoration-none" to="/">Home</Link>
+            <Link className="text-decoration-none" to="/">
+              Home
+            </Link>
           </Nav>
           <Row>
             <Col className="d-flex align-items-center ">
@@ -53,7 +58,7 @@ const HeaderUser = () => {
                     transform: "translate(25%, 25%)",
                   }}
                 >
-                  5
+                  {state.count}
                 </div>
               </Button>
               <Nav.Link onClick={someEventHandler}>

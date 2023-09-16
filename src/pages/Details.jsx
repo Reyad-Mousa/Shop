@@ -3,7 +3,6 @@ import Loading from "../components/Loading";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { clearProducts } from "../store/productSlice";
-
 const Details = () => {
   const dispatch = useDispatch();
 

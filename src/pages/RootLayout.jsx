@@ -3,17 +3,19 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HeaderUser from "../components/HeaderUser";
 import { Outlet } from "react-router-dom";
-
+import GlobalStateProvider from "../hooks/GlobalStateProvider";
 function RootLayout() {
   return (
-    <Container>
-      <HeaderUser />
-      <Row>
-        <Col className="d-flex flex-wrap justify-content-evenly">
-          <Outlet />
-        </Col>
-      </Row>
-    </Container>
+    <GlobalStateProvider>
+      <Container>
+        <HeaderUser />
+        <Row>
+          <Col className="d-flex flex-wrap justify-content-evenly">
+            <Outlet />
+          </Col>
+        </Row>
+      </Container>
+    </GlobalStateProvider>
   );
 }
 
