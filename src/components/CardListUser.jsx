@@ -4,10 +4,13 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { NavLink } from "react-bootstrap";
 import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
-import React, { useContext } from "react";
-import GlobalStateContext from "../hooks/GlobalStateContext";
+// import React, { useContext } from "react";
+// import GlobalStateContext from "../hooks/GlobalStateContext";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/cartSlice.js";
 const CardListUser = ({ data }) => {
-  const { increment } = useContext(GlobalStateContext);
+  const dispatch = useDispatch();
+  // const { increment } = useContext(GlobalStateContext);
   const navigate = useNavigate();
   const records = data.map((el, index) => (
     <div key={el.id}>
@@ -26,7 +29,10 @@ const CardListUser = ({ data }) => {
             aria-label="Basic example"
           >
             <NavLink>
-              <Button onClick={increment} variant="outline-primary">
+              <Button
+                onClick={() => dispatch(addToCart(el))}
+                variant="outline-primary"
+              >
                 +
               </Button>
             </NavLink>

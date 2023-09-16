@@ -8,8 +8,11 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { useContext } from "react";
 import GlobalStateContext from "../hooks/GlobalStateContext";
 import Cart from "../pages/Cart";
+import { useSelector } from "react-redux";
 const HeaderUser = () => {
-  const { state, setToggle } = useContext(GlobalStateContext);
+  const cart = useSelector((state) => state.cart);
+
+  const { setToggle } = useContext(GlobalStateContext);
   const navigate = useNavigate();
   const someEventHandler = () => {
     navigate("/admin");
@@ -61,7 +64,7 @@ const HeaderUser = () => {
                     transform: "translate(25%, 25%)",
                   }}
                 >
-                  {state.count}
+                  {cart.length}
                 </div>
               </Button>
               <Nav.Link onClick={someEventHandler}>

@@ -10,10 +10,15 @@ const Index = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-;
+
+
   return (
     <Loading>
-      <CardListUser data={records} loading={loading} error={error} />
+      <CardListUser
+        data={records}
+        loading={loading}
+        error={error}
+      />
     </Loading>
   );
 };

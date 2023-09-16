@@ -9,6 +9,7 @@ function Cart() {
   return (
     <div>
       <aside
+        className="overflow-auto"
         style={{
           right: toggle ? "0" : "-400px",
           transition: "0.3s",
@@ -16,8 +17,9 @@ function Cart() {
           top: 0,
           width: "400px",
           height: "100vh",
-          background: "rgb(165 165 165)",
+          background: "#fff",
           zIndex: "1000",
+          border: "1px solid",
         }}
       >
         <Button

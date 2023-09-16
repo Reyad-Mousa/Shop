@@ -93,7 +93,6 @@ export const updateProduct = createAsyncThunk(
     }
   }
 );
-// add product in cart 
 
 
 const productSlice = createSlice({
