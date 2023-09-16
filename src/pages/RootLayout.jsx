@@ -10,7 +10,7 @@ function RootLayout() {
       <Container>
         <HeaderUser />
         <Row>
-          <Col className="d-flex flex-wrap justify-content-evenly">
+          <Col className="d-flex flex-wrap">
             <Outlet />
           </Col>
         </Row>
