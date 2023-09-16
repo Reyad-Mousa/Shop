@@ -9,7 +9,7 @@ function AdminRootLayout() {
     <Container>
       <Admin />
       <Row>
-        <Col className="d-flex flex-wrap justify-content-evenly">
+        <Col className="d-flex flex-wrap ">
           <Outlet />
         </Col>
       </Row>

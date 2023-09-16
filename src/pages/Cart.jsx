@@ -23,7 +23,7 @@ function Cart() {
         }}
       >
         <Button
-          className=" d-inline w-100"
+          className=" d-inline w-100 rounded-0"
           variant="danger"
           onClick={setToggle}
         >
