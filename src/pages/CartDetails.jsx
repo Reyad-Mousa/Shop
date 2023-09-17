@@ -27,7 +27,7 @@ const CartDetails = () => {
         <div className="col-sm-2 ">
           <button
             type="button"
-            class="btn btn-outline-danger d-block"
+            className="btn btn-outline-danger d-block"
             onClick={() => dispatch(deleteFromCart(el))}
           >
             <RiDeleteBin5Line />
