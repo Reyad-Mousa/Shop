@@ -5,7 +5,11 @@ export const cartSlice = createSlice({
   name: "cart",
   reducers: {
     addToCart: (state, action) => {
-      state.push(action.payload);
+      const newItem = {
+        ...action.payload,
+        id: Math.random().toString(36).substr(2, 9), // This will generate a random id
+      };
+      state.push(newItem);
     },
     deleteFromCart: (state, action) => {
       return state.filter((el) => el.id !== action.payload.id);
