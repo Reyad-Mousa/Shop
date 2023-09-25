@@ -103,21 +103,23 @@ const productSlice = createSlice({
       state.records = [];
     },
   },
-  extraReducers: {
+ extraReducers: (builder) => {
     // fetchProducts
-    [fetchProducts.pending]: (state) => {
-      state.loading = true;
-      state.error = null;
-    },
-    [fetchProducts.fulfilled]: (state, action) => {
-      state.loading = false;
-      state.records = action.payload;
-    },
-    [fetchProducts.rejected]: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
-    // deleteProducts
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.records = action.payload;
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+  },
+      // deleteProducts
     [deleteProducts.pending]: (state) => {
       state.loading = true;
       state.error = null;
@@ -173,7 +175,7 @@ const productSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-  },
+  
 });
 export const { clearProducts } = productSlice.actions;
 export default productSlice.reducer;
