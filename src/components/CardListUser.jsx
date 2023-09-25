@@ -4,13 +4,10 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { NavLink } from "react-bootstrap";
 import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
-// import React, { useContext } from "react";
-// import GlobalStateContext from "../hooks/GlobalStateContext";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice.js";
 const CardListUser = ({ data }) => {
   const dispatch = useDispatch();
-  // const { increment } = useContext(GlobalStateContext);
   const navigate = useNavigate();
   const records = data.map((el, index) => (
     <div key={el.id}>
